@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+       
+       
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background-color: rgba(162, 196, 196, 0.8); 
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+      
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .btn-primary, .btn-secondary {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .alert {
+            margin-top: 20px;
+        }
+        #myDIV {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myDIV");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Recommendation App</h1>
+        <form action="{{ url_for('get_recommendations') }}" method="POST">
+            <div class="form-group">
+                <label for="movie_name">Enter a movie name:</label>
+                <input type="text" class="form-control" id="movie_name" name="movie_name" required>
+            </div>
+            <button type="button" class="btn btn-info" onclick="myFunction()">Filter by genre</button>
+           
+            <div id="myDIV" style="white-space: wrap;">
+                {% for genre in genres %}
+                    <div class="form-check d-inline-block">
+                        <input type="checkbox" class="form-check-input" id="genre-{{ loop.index }}" name="genre" value="{{ genre }}">
+                        <label class="form-check-label" for="genre-{{ loop.index }}">{{ genre }}</label>
+                    </div>
+            
+                {% endfor %}
+            </div>
+          
+            <button type="submit" class="btn btn-primary">Get Recommendations</button>
+        </form>
+      
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
