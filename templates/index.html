@@ -61,7 +61,7 @@
             <div id="myDIV" style="white-space: wrap;">
                 {% for genre in genres %}
                     <div class="form-check d-inline-block">
-                        <input type="checkbox" class="form-check-input" id="genre-{{ loop.index }}" name="genre" value="{{ genre }}">
+                        <input type="checkbox" class="form-check-input" id="genre-{{ loop.index }}" name="genres[]" value="{{ genre }}">
                         <label class="form-check-label" for="genre-{{ loop.index }}">{{ genre }}</label>
                     </div>
             
