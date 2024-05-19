@@ -61,9 +61,9 @@ def get_recommendations():
         # Filter movies based on selected genres
         if selected_genres:
             filtered_movies = [
-                rec for rec in recommendations
-                if any(genre_dict.get(genre_id) in selected_genres for genre_id in rec.genre_ids)
-            ]
+               rec for rec in recommendations
+        if all(genre in [genre_dict.get(genre_id) for genre_id in rec.genre_ids] for genre in selected_genres)
+    ]
         else:
             filtered_movies = recommendations
         
