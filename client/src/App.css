@@ -1,0 +1,68 @@
+.App {
+  text-align: center;
+  height: 100vh;
+  background-image: url('../public/poster-collage.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 1); 
+}
+
+.App-header {
+  margin-top: 10%;
+  padding: 10px;
+  background-color: rgba(37, 34, 34, 0.88); /* Semi-transparent background for the search section */
+  border-radius: 40px;
+  display: inline-block; /* Ensures it wraps content */
+}
+
+h1 {
+  font-size: 5em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  font-size: 1.5em;
+}
+
+.search-bar {
+  padding: 10px;
+  font-size: 1em;
+  width: 300px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f04f57;
+  color: white;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #d4414b;
+}
+
+.dropdown {
+  padding: 10px;
+  font-size: 1em;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.dropdown:first-of-type {
+  margin-top: 20px;
+}
+
+.dropdown:hover {
+  background-color: #f0f0f0;
+}
